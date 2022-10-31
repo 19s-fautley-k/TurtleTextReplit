@@ -6,63 +6,15 @@
 
 # imports
 import turtle
-# setup of turtles and screen (should probably be cleaned up at some point)
-# creation
-t1 = turtle.Turtle()
-t2 = turtle.Turtle()
-t3 = turtle.Turtle()
-t4 = turtle.Turtle()
-t5 = turtle.Turtle()
-t6 = turtle.Turtle()
-t7 = turtle.Turtle()
-t8 = turtle.Turtle()
-t9 = turtle.Turtle()
-# thicker text
-t1.pensize(5)
-t2.pensize(5)
-t3.pensize(5)
-t4.pensize(5)
-t5.pensize(5)
-t6.pensize(5)
-t7.pensize(5)
-t8.pensize(5)
-t9.pensize(5)
-# makes the screen
+# variables
+turtles = [[turtle.Turtle(), -245, -50], [turtle.Turtle(), -190, -50], [turtle.Turtle(), -135, -50], [turtle.Turtle(), -80, -50], [turtle.Turtle(), -25, -50], [turtle.Turtle(), 30, -50], [turtle.Turtle(), 85, -50], [turtle.Turtle(), 150, -50], [turtle.Turtle(), 215, -50]]
 screen = turtle.Screen()
-screen.setup(1280, 720)
-# don't draw lines when moving
-t1.penup()
-t2.penup()
-t3.penup()
-t4.penup()
-t5.penup()
-t6.penup()
-t7.penup()
-t8.penup()
-t9.penup()
-# move to the right position
-t1.goto(-245, -50)
-t2.goto(-190, -50)
-t3.goto(-135, -50)
-t4.goto(-80, -50)
-t5.goto(-25, -50)
-t6.goto(30, -50)
-t7.goto(85, -50)
-t8.goto(140, -50)
-t9.goto(195, -50)
-# face up
-t1.left(90)
-t2.left(90)
-t3.left(90)
-t4.left(90)
-t5.left(90)
-t6.left(90)
-t7.left(90)
-t8.left(90)
-t9.left(90)
-
-# letter functions
-# i create these in whatever way I do, they will not be very organised
+# functions
+def turtlesetup(turtleinfo):
+    turtleinfo[0].pensize(5)
+    turtleinfo[0].penup()
+    turtleinfo[0].goto(turtleinfo[1], turtleinfo[2])
+    turtleinfo[0].left(90)
 def a(turtle):
     goto1, goto2 = turtle.pos()
     turtle.pendown()
@@ -230,13 +182,19 @@ def h(turtle):
     turtle.right(90)
     turtle.penup()
     turtle.goto(goto1, goto2)
+# setup
+# screen setup
+screen.setup(1280, 720)
+# turtle setup
+for turtleinfo in turtles:
+    turtlesetup(turtleinfo)
 # make the turtles display letters (currently used to test lettering)
-a(t1)
-b(t2)
-c(t3)
-d(t4)
-e(t5)
-f(t6)
-g(t7)
-h(t8)
-a(t9)
+a(turtles[0][0])
+b(turtles[1][0])
+c(turtles[2][0])
+d(turtles[3][0])
+e(turtles[4][0])
+f(turtles[5][0])
+g(turtles[6][0])
+h(turtles[7][0])
+a(turtles[8][0])
